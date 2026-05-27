@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Мемориал «Чёрный тюльпан» | Лодейное Поле</title>
+    <meta name="description" content="Мемориал «Чёрный тюльпан» в Лодейном Поле — памятник воинам-интернационалистам, погибшим в Афганистане, Чечне и других локальных конфликтах. История, символика, описание.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, 'Segoe UI', 'Roboto', 'Helvetica Neue', sans-serif;
+            scroll-behavior: smooth;
+            background-color: #fef9f0;
+            color: #2c3a2f;
+        }
+
+        /* ----- НАВИГАЦИЯ (фиксированная) ----- */
+        .top-navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #2c3e4e;
+            backdrop-filter: blur(0px);
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            padding: 0.7rem 2rem;
+        }
+
+        .nav-container {
+            max-width: 1300px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropbtn {
+            background-color: #1e2f3a;
+            color: white;
+            padding: 0.6rem 1.3rem;
+            font-size: 1rem;
+            font-weight: 500;
+            border: none;
+            border-radius: 40px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-family: inherit;
+            letter-spacing: 0.3px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+        }
+
+        .dropbtn:hover {
+            background-color: #3a5a6e;
+            transform: scale(1.02);
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f7f3;
+            min-width: 210px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+            border-radius: 20px;
+            z-index: 1001;
+            top: 115%;
+            left: 0;
+            padding: 0.6rem 0;
+            backdrop-filter: blur(2px);
+            border: 1px solid #e2dcd0;
+        }
+
+        .dropdown-content a {
+            color: #1f2f38;
+            padding: 0.6rem 1.2rem;
+            text-decoration: none;
+            display: block;
+            font-size: 0.9rem;
+            transition: background 0.2s;
+            border-radius: 12px;
+            margin: 0.2rem 0.5rem;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #e6dfd3;
+            color: #0f2b36;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .simple-link-btn {
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .simple-link-btn .dropbtn {
+            cursor: pointer;
+            display: inline-block;
+        }
+
+        .simple-link-btn:hover .dropbtn {
+            background-color: #3a5a6e;
+            transform: scale(1.02);
+        }
+
+        /* ----- Hero-секция (с местной атмосферой Лодейного Поля) ----- */
+        .hero-section {
+            margin-top: 70px;
+            min-height: 90vh;
+            background-image: url('data:image/jpeg;base64,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');
+            background-size: cover;
+            background-position: center 30%;
+            background-repeat: no-repeat;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .hero-section::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 248, 235, 0.55);
+            backdrop-filter: blur(5px);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            padding: 2rem;
+            border-radius: 60px;
+        }
+
+        .hero-content h1 {
+            font-size: 3rem;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            color: #2c3e4e;
+            letter-spacing: 2px;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            font-style: italic;
+            color: #2c3a2f;
+            background: rgba(254,249,240,0.7);
+            display: inline-block;
+            padding: 0.3rem 1.2rem;
+            border-radius: 40px;
+            backdrop-filter: blur(2px);
+        }
+
+        .hero-btn {
+            background-color: #3e6b47;
+            border: none;
+            color: white;
+            font-size: 1.2rem;
+            font-weight: bold;
+            padding: 0.9rem 2rem;
+            border-radius: 60px;
+            cursor: pointer;
+            box-shadow: 0 12px 20px rgba(0,0,0,0.2);
+            transition: 0.2s;
+            font-family: inherit;
+            letter-spacing: 1px;
+        }
+
+        .hero-btn:hover {
+            background-color: #2b4d33;
+            transform: scale(1.02);
+            box-shadow: 0 8px 18px rgba(0,0,0,0.25);
+        }
+
+        /* Основные блоки */
+        .details-section {
+            background-color: #fdf8ed;
+            padding: 3rem 2rem 4rem 2rem;
+            width: 100%;
+            scroll-margin-top: 80px;
+        }
+
+        .details-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: #fffef7;
+            border-radius: 48px;
+            box-shadow: 0 20px 35px rgba(0, 0, 0, 0.05);
+            padding: 2rem 2rem 2.5rem 2rem;
+        }
+
+        .details-text {
+            font-size: 1.2rem;
+            line-height: 1.5;
+            color: #2c3a2f;
+            margin-bottom: 2rem;
+            white-space: pre-wrap;
+            font-weight: 450;
+        }
+
+        .custom-text-block {
+            background: #fef9e6;
+            padding: 1.5rem;
+            border-radius: 32px;
+            margin-bottom: 2rem;
+            border-left: 6px solid #9bbf8f;
+        }
+
+        .custom-text-block h2 {
+            color: #2f5e3c;
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            color: #2c4a3e;
+            margin: 1.5rem 0 1.5rem 0;
+            text-align: center;
+            border-bottom: 3px solid #d4a259;
+            display: inline-block;
+            width: auto;
+            padding-bottom: 0.5rem;
+        }
+
+        .title-center {
+            text-align: center;
+        }
+
+        /* Карточки (памятники в других регионах) */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .place-card {
+            background: white;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            border: 1px solid #eee6dc;
+        }
+
+        .place-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 30px rgba(0,0,0,0.12);
+        }
+
+        .card-img {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .place-card h3 {
+            padding: 18px 18px 8px;
+            font-size: 1.3rem;
+            color: #2c4a3e;
+        }
+
+        .place-card p {
+            padding: 0 18px 18px;
+            color: #5a5a5a;
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+
+        .card-category {
+            display: inline-block;
+            padding: 4px 12px;
+            margin: 12px 18px 0;
+            background: #e8e0d3;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            color: #5a4a2e;
+        }
+
+        .filter-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+            margin: 20px 0 10px;
+        }
+
+        .filter-btn {
+            background: #e8e0d3;
+            border: none;
+            padding: 8px 20px;
+            border-radius: 40px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: 0.2s;
+            color: #2c4a3e;
+        }
+
+        .filter-btn:hover, .filter-btn.active {
+            background: #2c4a3e;
+            color: white;
+        }
+
+        /* Фотогалерея */
+        .photo-gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+
+        .photo-card {
+            flex: 1 1 250px;
+            max-width: 320px;
+            background: white;
+            border-radius: 32px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            transition: 0.2s;
+        }
+
+        .photo-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .photo-caption {
+            padding: 0.8rem;
+            text-align: center;
+            background: #ffffffd9;
+            font-size: 0.9rem;
+            color: #4d5a47;
+        }
+
+        /* Карта (Лодейное Поле) */
+        .map-container {
+            margin: 2rem 0 1rem;
+            border-radius: 32px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 400px;
+            border: none;
+            display: block;
+        }
+
+        .contact-footer {
+            background-color: #1e2f32;
+            color: #ece3d8;
+            padding: 2rem 1.5rem;
+            text-align: center;
+            width: 100%;
+        }
+
+        .contact-footer h3 {
+            font-weight: 500;
+            margin-bottom: 0.8rem;
+            letter-spacing: 1px;
+            font-size: 1.3rem;
+            color: #ffefcf;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 0.5rem;
+        }
+
+        .contact-item {
+            background: #2d464b;
+            padding: 0.4rem 1.2rem;
+            border-radius: 40px;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .contact-item a {
+            color: #f8efdb;
+            text-decoration: none;
+            transition: 0.2s;
+        }
+
+        .contact-item a:hover {
+            text-decoration: underline;
+            color: #ffffff;
+        }
+
+        hr {
+            margin: 1rem auto 0.5rem;
+            width: 80px;
+            border-color: #6f8f82;
+        }
+
+        @media (max-width: 760px) {
+            .hero-content h1 { font-size: 2rem; }
+            .details-section { padding: 2rem 1rem; }
+            .top-navbar { padding: 0.7rem 1rem; }
+            .filter-buttons { gap: 8px; }
+        }
+    </style>
+</head>
+<body>
+
+    <section class="hero-section" id="hero">
+        <div class="hero-content">
+            <h1>«Чёрный тюльпан»</h1>
+            <p>📍 Лодейное Поле, проспект Ленина</p>
+            <button class="hero-btn" onclick="document.getElementById('about-main').scrollIntoView({behavior:'smooth'})">Узнать историю</button>
+        </div>
+    </section>
+
+    <div class="details-section" id="about-main">
+        <div class="details-container">
+            <div class="custom-text-block" id="history">
+                <h2>Мемориал «Чёрный тюльпан» в Лодейном Поле</h2>
+                <p>В <strong>Лодейном Поле</strong> (Ленинградская область), на проспекте Ленина, установлен один из самых трогательных памятников воинам-интернационалистам. Мемориал «Чёрный тюльпан» посвящён жителям города и района, погибшим в Афганистане (1979–1989), Чеченских кампаниях, Дагестане и других локальных конфликтах. Открытие состоялось в 1990-е годы по инициативе ветеранов боевых действий и при поддержке местных властей.</p>
+                <p style="margin-top: 0.8rem;">Скульптурная композиция выполнена в виде чёрного цветка тюльпана — символа скорби и памяти. На постаменте высечены имена земляков, не вернувшихся с войны. Каждый год 15 февраля, в День памяти воинов-интернационалистов, у монумента проходят митинги, возложения цветов и зажигаются свечи. Местные жители называют это место «сердцем памяти» Лодейнопольского района.</p>
+            </div>
+
+            <div id="symbol" class="custom-text-block" style="border-left-color: #b87c4f;">
+                <h2>Почему «Чёрный тюльпан»?</h2>
+                <p>Название памятника — не художественная метафора, а суровая правда войны. В Афганистане военно-транспортный самолёт Ан-12, который доставлял на Родину тела погибших солдат (груз 200), называли «Чёрный тюльпан». Цветок стал символом невозвращения, боли и вечной памяти. Монумент в Лодейном Поле — часть всероссийской мемориальной традиции, напоминающая о цене мира и героизме воинов-интернационалистов.</p>
+                <p style="margin-top: 0.6rem;">На постаменте выбита надпись: <em>«Никто не забыт, ничто не забыто»</em>. Рядом — место для венков и лампад.</p>
+            </div>
+
+            <div class="details-text" id="memory">
+                <p><strong>Дни памяти у мемориала в Лодейном Поле:</strong> 15 февраля (День вывода войск из Афганистана), 9 декабря (День Героев Отечества), 22 июня, а также в день открытия мемориала. Ежегодно ветераны, школьники и жители города собираются, чтобы отдать долг павшим героям.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Карта расположения мемориала в Лодейном Поле -->
+    <div class="details-section" id="map-block" style="padding-top: 0;">
+        <div class="details-container">
+            <div class="title-center">
+                <span class="section-title">🗺️ Мемориал на карте (Лодейное Поле)</span>
+            </div>
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1749.498731552983!2d33.54576141586107!3d60.7344946827865!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4697e66e1a1e2b2b%3A0x4b4c4a2c7b1b3b2b!2z0L_RgNC-0YHQv9C10LrRgiDQm9C10L3QuNC90LA!5e0!3m2!1sru!2sru!4v1712323232323!5m2!1sru!2sru" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+            <p style="text-align: center; margin-top: 0.8rem;">г. Лодейное Поле, проспект Ленина — мемориал «Чёрный тюльпан». Памятное место, где каждый может почтить подвиг воинов-интернационалистов.</p>
+        </div>
+    </div>
+
+    <div class="contact-footer">
+        <p style="margin-top: 1rem; font-size: 0.8rem;">© Кванториум 2026</p>
+    </div>
+
+    <script>
+        // Фильтрация карточек городов
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const cards = document.querySelectorAll('.place-card');
+        
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                filterBtns.forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                const filterValue = this.getAttribute('data-filter');
+                
+                cards.forEach(card => {
+                    if(filterValue === 'all') {
+                        card.style.display = 'block';
+                    } else {
+                        const category = card.getAttribute('data-category');
+                        if(category === filterValue) {
+                            card.style.display = 'block';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    }
+                });
+            });
+        });
+        
+        // Плавная прокрутка для якорей
+        document.querySelectorAll('.dropdown-content a, .simple-link-btn .dropbtn').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                if(href && href.startsWith('#')) {
+                    e.preventDefault();
+                    const targetId = href.substring(1);
+                    const targetElement = document.getElementById(targetId);
+                    if(targetElement) {
+                        targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    } else if(targetId === 'cities-section' && document.getElementById('cities-section')) {
+                        document.getElementById('cities-section').scrollIntoView({ behavior: 'smooth' });
+                    } else if(targetId === 'gallery' && document.getElementById('gallery')) {
+                        document.getElementById('gallery').scrollIntoView({ behavior: 'smooth' });
+                    } else if(targetId === 'map-block' && document.getElementById('map-block')) {
+                        document.getElementById('map-block').scrollIntoView({ behavior: 'smooth' });
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
